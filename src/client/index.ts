@@ -1,19 +1,15 @@
 import { html } from 'htm/preact'
 import { FunctionComponent, render } from 'preact'
-import {
-    Primary as ButtonOutlinePrimary,
-    ButtonOutline
-} from '@nichoth/components/htm/button-outline'
-import { createDebug } from '@substrate-system/debug'
+import Debug from '@substrate-system/debug'
 import ky from 'ky'
 import { State } from './state.js'
+import { Button } from './components/button.js'
 import Router from './routes/index.js'
-import '@nichoth/components/button-outline.css'
 import './style.css'
 
 const router = Router()
 const state = State()
-const debug = createDebug()
+const debug = Debug('template')
 
 if (import.meta.env.DEV || import.meta.env.MODE === 'staging') {
     // @ts-expect-error DEV env
@@ -64,14 +60,14 @@ export const Example:FunctionComponent = function Example () {
             <div>count: ${state.count.value}</div>
             <ul class="count-controls">
                 <li>
-                    <${ButtonOutlinePrimary} onClick=${plus}>
+                    <${Button} class="btn" onClick=${plus}>
                         plus
-                    </${ButtonOutline}>
+                    <//>
                 </li>
                 <li>
-                    <${ButtonOutline} onClick=${minus}>
+                    <${Button} class="btn" onClick=${minus}>
                         minus
-                    </${ButtonOutline}>
+                    <//>
                 </li>
             </ul>
         </div>
