@@ -4,6 +4,6 @@ Docs here
 
 ## develop
 
-```
+```sh
 npm start
 ```

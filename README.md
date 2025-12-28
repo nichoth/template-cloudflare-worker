@@ -6,7 +6,7 @@ for tests in a browser environment.
 
 See
 [template-ts-preact-htm-app](https://github.com/nichoth/template-ts-preact-htm-app)
- for the same thing, but not using cloudflare.
+for the same thing, but not using cloudflare.
 
 See [template-ts-preact-htm](https://github.com/nichoth/template-ts-preact-htm)
 for something similar, but for dependency modules.
@@ -49,9 +49,9 @@ npm start
 
 Use the Cloudflare GUI to import your repo.
 
-Deploy from the CLI with `nps wrangler deploy`.
+Deploy from the CLI with `npx wrangler deploy`.
 
-## Architecture
+## Frontend Architecture
 
 See
 [this article](https://gomakethings.com/easier-state-management-with-preact-signals/)
@@ -65,14 +65,3 @@ In the view code, you would call the functions exposed in
 [state](./src/state.ts) with a state instance in response to application events.
 
 ## Notes
-
-### [headers + cloudflare functions](https://developers.cloudflare.com/pages/configuration/headers/)
-
-> [!WARNING]  
-> Custom headers defined in the _headers file are not applied to responses from
-> Functions, even if the Function route matches the URL pattern. If your Pages
-> application uses Functions, you must migrate any behaviors from the _headers
-> file to the Response object in the appropriate /functions route. When altering
-> headers for multiple routes, you may be interested in
-> [adding middleware](https://developers.cloudflare.com/pages/functions/middleware/)
-> for shared behavior.
