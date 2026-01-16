@@ -1,5 +1,6 @@
 import { html } from 'htm/preact'
 import { FunctionComponent, render } from 'preact'
+import { useComputed } from '@preact/signals'
 import Debug from '@substrate-system/debug'
 import ky from 'ky'
 import { State } from './state.js'
@@ -21,14 +22,15 @@ const json = await ky.get('/api/helloworld').json()
 
 export const Example:FunctionComponent = function Example () {
     debug('rendering example...')
-    const match = router.match(state.route.value)
-    const ChildNode = match.action(match, state.route)
+    const match = useComputed(() => router.match(state.route.value))
 
-    if (!match) {
+    if (!match.value) {
         return html`<div class="404">
             <h1>404</h1>
         </div>`
     }
+
+    const ChildNode = match.value.action(match, state.route)
 
     function plus (ev) {
         ev.preventDefault()
