@@ -5,12 +5,13 @@
   "main": "public/index.js",
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
+    "toc": "markdown-toc --maxdepth 3 -i README.md",
     "build-tests": "esbuild test/index.ts --bundle --format=cjs --keep-names > test/test-bundle.js",
     "test": "esbuild ./test/index.ts --bundle | tapout",
     "build": "mkdir -p ./public && rm -rf ./public/* && vite build",
     "start": "vite",
     "preversion": "npm run lint",
-    "version": "auto-changelog --template keepachangelog --breaking-pattern 'BREAKING CHANGE' && git add CHANGELOG.md",
+    "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md README.md",
     "postversion": "git push --follow-tags",
     "prepublishOnly": "npm run build"
   },
@@ -39,6 +40,7 @@
     "eslint": "^8.57.1",
     "eslint-config-standard": "^17.1.0",
     "lightningcss": "^1.30.2",
+    "markdown-toc": "^1.2.0",
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^39.0.1",
     "tap-spec": "^5.0.0",

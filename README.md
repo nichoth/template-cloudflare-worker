@@ -11,6 +11,19 @@ for the same thing, but not using cloudflare.
 See [template-ts-preact-htm](https://github.com/nichoth/template-ts-preact-htm)
 for something similar, but for dependency modules.
 
+## Contents
+
+<!-- toc -->
+
+- [Use](#use)
+- [_Featuring_](#_featuring_)
+- [Develop](#develop)
+- [Cloudflare](#cloudflare)
+- [Frontend Architecture](#frontend-architecture)
+- [Notes](#notes)
+
+<!-- tocstop -->
+
 ## Use
 
 1. Use the template button in github. Or clone this then

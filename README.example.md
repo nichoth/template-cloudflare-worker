@@ -2,7 +2,11 @@
 
 Docs here
 
-## develop
+## Contents
+
+<!-- toc -->
+
+## Develop
 
 ```sh
 npm start
