@@ -28,7 +28,8 @@ for something similar, but for dependency modules.
 * `preversion` npm hook -- lint.
 * `postversion` npm hook -- `git push && git push --tags`
 * eslint via [eslint-config-standard](https://github.com/standard/eslint-config-standard) -- `npm run lint`
-* test in a browser environment via `tape-run` -- see `npm test`.
+* test in a browser environment via
+  [`tapout`](https://github.com/substrate-system/tapout) -- see `npm test`.
   Includes `tap` testing tools &mdash;
   [tapzero](https://github.com/substrate-system/tapzero) and
   [tap-spec](https://www.npmjs.com/package/tap-spec)
