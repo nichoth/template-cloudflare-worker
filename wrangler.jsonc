@@ -35,6 +35,15 @@
 	"dev": {
 		"port": 9999
 	},
+	"env": {
+		"staging": {
+			"vars": {
+				"NODE_ENV": "staging",
+				"STAGING_AUTH": "true",
+				"DOMAIN": "abc.com"
+			}
+		}
+	},
 
 	/**
 	 * Smart Placement

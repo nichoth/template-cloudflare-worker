@@ -1,11 +1,28 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
+import { basicAuth } from 'hono/basic-auth'
 
 type Bindings = {
     ASSETS:Fetcher
+    STAGING_AUTH?:string
+    STAGING_PASSWORD?:string
 }
 
 const app = new Hono<{ Bindings:Bindings }>()
+
+/**
+ * Basic auth for staging branch deploys.
+ * Set the secret via:
+ *   wrangler secret put STAGING_PASSWORD --env staging
+ */
+app.use('*', async (c, next) => {
+    if (c.env.STAGING_AUTH !== 'true') return next()
+    const auth = basicAuth({
+        username: 'staging',
+        password: c.env.STAGING_PASSWORD || '',
+    })
+    return auth(c, next)
+})
 
 app.use('/api/*', cors())
 
