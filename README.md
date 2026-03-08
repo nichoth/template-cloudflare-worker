@@ -19,6 +19,7 @@ for something similar, but for dependency modules.
 - [_Featuring_](#_featuring_)
 - [Develop](#develop)
 - [Cloudflare](#cloudflare)
+  - [Staging](#staging)
 - [Frontend Architecture](#frontend-architecture)
 - [Notes](#notes)
 
@@ -64,6 +65,22 @@ npm start
 Use the Cloudflare GUI to import your repo.
 
 Deploy from the CLI with `npx wrangler deploy`.
+
+### Staging
+
+The staging environment is protected by basic auth. To set it up:
+
+1. Set the password secret:
+   ```sh
+   wrangler secret put STAGING_PASSWORD --env staging
+   ```
+2. Deploy:
+   ```sh
+   wrangler deploy --env staging
+   ```
+
+When visiting the staging site, use `staging` as the username and the
+secret you configured as the password.
 
 ## Frontend Architecture
 
